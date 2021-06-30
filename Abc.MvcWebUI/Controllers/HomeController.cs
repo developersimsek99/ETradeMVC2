@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Abc.MvcWebUI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller //For publish
     {
         DataContext _context = new DataContext(); //DataInitializer (veritabanını) tanıtma
         
