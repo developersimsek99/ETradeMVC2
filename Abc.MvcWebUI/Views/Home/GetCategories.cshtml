@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Abc.MvcWebUI.Entities.Category>
+@{ 
+    //Yukarıda bulunan urldeki idyi alma
+    var selectedCategory = Url.RequestContext.RouteData.Values["id"];
+}
+
+
+
+<div class="list-group">
+    <a href="/Home/List" style="text-decoration:none;" class="list-group-item">>>> Tüm Kategoriler</a>
+    @foreach (var item in Model)
+    {
+        if (selectedCategory != null)
+        {
+            if (item.Id == int.Parse(selectedCategory.ToString()))
+            {
+                //seçilen kategori ile route idsi birbirine eşit
+                <a href="/Home/List/@item.Id" class="list-group-item list-group-item-action active">
+                    >> @item.Name
+                </a>
+            }
+            else
+            {
+                <a href="/Home/List/@item.Id" class="list-group-item list-group-item-action">
+                    >> @item.Name
+                </a>
+            }
+        }
+        else
+        {
+            <a href="/Home/List/@item.Id" class="list-group-item list-group-item-action">
+                >> @item.Name
+            </a>
+        }
+
+    }
+</div>
+

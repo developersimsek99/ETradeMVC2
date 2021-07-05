@@ -6,65 +6,77 @@
 @{
     ViewBag.Title = "Details";
 }
-<div class="row">
-    <div class="col-md-6">
-        <img src="~/theme/img/camera.jpg" class="img-fluid rounded" />
-    </div>
-    <div class="col-md-6">
-        <h1>@Model.Name</h1>
-        <div class="col-md-12">
-            <span class="btn btn-primary">Stokta var</span>
-            <span class="product-number">#286544</span>
+
+<div id="product-details" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="~/Upload/@Model.Image" class="img-fluid rounded" />
         </div>
-        <div class="col-md-12">
-            <div id="description">
-                @Model.Description
+        <div class="col-md-6">
+            <h1 style="font-size: 20px; font-weight: 700;">@Model.Name</h1>
+            <div class="col-md-12">
+                
+                <span class="product-number">#286544</span>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half"></i>
-                <span class="btn btn-success">53</span>
+            <div class="col-md-12">
+                @if (Model.IsApproved)
+                {
+                    <span class="btn btn-primary">Stokta</span>
+                }
+                else
+                {
+                    <span class="btn btn-danger">Stokta Değil</span>
+                }
+                <div id="description">
+                    @Model.Description
+                </div>
             </div>
-            <div class="col-md-4">
-                Yorum yap
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                    <span class="btn btn-success">53</span>
+                </div>
+                <div class="col-md-4">
+                    Yorum yap
+                </div>
             </div>
-        </div>
-        <div class="col-md-12">
-            <h4 id="product-price">@Model.Price ₺</h4>
-            <button class="btn btn-success">Sepete Ekle <i class="fa fa-cart-plus"></i> </button>
-        </div>
-    </div>
-</div>
-<div class="row mt-3">
-    <div class="col-md-12 mt-3">
-        <div class="bd-example bd-example-tabs">
-            <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-selected="true">Description</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-payment-tab" data-toggle="pill" href="#pills-payment" role="tab" aria-controls="pills-payment" aria-selected="false">Payment Methods</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-comment-tab" data-toggle="pill" href="#pills-comment" role="tab" aria-controls="pills-comment" aria-selected="false">Reviews</a>
-                </li>
-            </ul>
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-home-tab">
-                    <p>Consequat occaecat ullamco amet non eiusmod nostrud dolore irure incididunt est duis anim sunt officia. Fugiat velit proident aliquip nisi incididunt nostrud exercitation proident est nisi. Irure magna elit commodo anim ex veniam culpa eiusmod id nostrud sit cupidatat in veniam ad. Eiusmod consequat eu adipisicing minim anim aliquip cupidatat culpa excepteur quis. Occaecat sit eu exercitation irure Lorem incididunt nostrud.</p>
-                </div>
-                <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <p>Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex. Aute sunt incididunt amet commodo est sint nisi deserunt pariatur do. Aliquip ex eiusmod voluptate exercitation cillum id incididunt elit sunt. Qui minim sit magna Lorem id et dolore velit Lorem amet exercitation duis deserunt. Anim id labore elit adipisicing ut in id occaecat pariatur ut ullamco ea tempor duis.</p>
-                </div>
-                <div class="tab-pane fade" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">
-                    <p>Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex. Aute sunt incididunt amet commodo est sint nisi deserunt pariatur do. Aliquip ex eiusmod voluptate exercitation cillum id incididunt elit sunt. Qui minim sit magna Lorem id et dolore velit Lorem amet exercitation duis deserunt. Anim id labore elit adipisicing ut in id occaecat pariatur ut ullamco ea tempor duis.</p>
-                </div>
+            <div class="col-md-12">
+                <h4 id="product-price">@Model.Price ₺</h4>
+                <button class="btn btn-success">Sepete Ekle <i class="fa fa-cart-plus"></i> </button>
             </div>
         </div>
     </div>
+    <div class="row mt-3">
+        <div class="col-md-12 mt-3">
+            <div class="bd-example bd-example-tabs">
+                <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-selected="true">Description</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-payment-tab" data-toggle="pill" href="#pills-payment" role="tab" aria-controls="pills-payment" aria-selected="false">Payment Methods</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-comment-tab" data-toggle="pill" href="#pills-comment" role="tab" aria-controls="pills-comment" aria-selected="false">Reviews</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <p>Consequat occaecat ullamco amet non eiusmod nostrud dolore irure incididunt est duis anim sunt officia. Fugiat velit proident aliquip nisi incididunt nostrud exercitation proident est nisi. Irure magna elit commodo anim ex veniam culpa eiusmod id nostrud sit cupidatat in veniam ad. Eiusmod consequat eu adipisicing minim anim aliquip cupidatat culpa excepteur quis. Occaecat sit eu exercitation irure Lorem incididunt nostrud.</p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <p>Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex. Aute sunt incididunt amet commodo est sint nisi deserunt pariatur do. Aliquip ex eiusmod voluptate exercitation cillum id incididunt elit sunt. Qui minim sit magna Lorem id et dolore velit Lorem amet exercitation duis deserunt. Anim id labore elit adipisicing ut in id occaecat pariatur ut ullamco ea tempor duis.</p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">
+                        <p>Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex. Aute sunt incididunt amet commodo est sint nisi deserunt pariatur do. Aliquip ex eiusmod voluptate exercitation cillum id incididunt elit sunt. Qui minim sit magna Lorem id et dolore velit Lorem amet exercitation duis deserunt. Anim id labore elit adipisicing ut in id occaecat pariatur ut ullamco ea tempor duis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
